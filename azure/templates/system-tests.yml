@@ -11,7 +11,7 @@ steps:
       npm install -g electrode-native
     displayName: 'Install ern global CLI'
   - script: |
-      node setup-dev
+      yarn setup:dev
     displayName: 'Setup dev version of ern'
   - script: |
       yarn coverage

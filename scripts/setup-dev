@@ -1,7 +1,10 @@
+#!/usr/bin/env node
+
 // ==============================================================================
 // Script to setup development environment
 // Only meant to be used by ern-platform developers/contributors
 // ==============================================================================
+
 const childProcess = require('child_process')
 const execSync = childProcess.execSync
 
