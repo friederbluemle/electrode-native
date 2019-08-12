@@ -30,7 +30,7 @@ If you want to contribute code to the Electrode Native platform, you'll first ne
 1. In your local working directory of the `electrode-native` repository, run the following command:
 
     ```bash
-    node setup-dev
+    npm run setup:dev
     ```
 
    It takes care of installing all the needed dependencies for all Electrode Native modules, and creates a new local version `1000.0.0` of the platform.
