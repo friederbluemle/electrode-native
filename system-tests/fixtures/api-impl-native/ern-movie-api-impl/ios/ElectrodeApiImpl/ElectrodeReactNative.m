@@ -1,12 +1,12 @@
 /*
  * Copyright 2017 WalmartLabs
-
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
-
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
-
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21,7 +21,7 @@
 #elif __has_include("RCTBundleURLProvider.h")
 #import "RCTBundleURLProvider.h"
 #else
-#import "React/RCTBundleURLProvider.h"   // Required when used as a Pod in a Swift project
+#import "React/RCTBundleURLProvider.h" // Required when used as a Pod in a Swift project
 #endif
 
 #if __has_include(<React/RCTRootView.h>)
@@ -29,7 +29,7 @@
 #elif __has_include("RCTRootView.h")
 #import "RCTRootView.h"
 #else
-#import "React/RCTRootView.h"   // Required when used as a Pod in a Swift project
+#import "React/RCTRootView.h" // Required when used as a Pod in a Swift project
 #endif
 
 #import <React/RCTDevMenu.h>
@@ -37,11 +37,11 @@
 #import <React/RCTBridge+Private.h>
 #import <CoreText/CTFontManager.h>
 
-NSString * const ERNCodePushConfig = @"CodePush";
-NSString * const ERNCodePushConfigServerUrl = @"CodePushConfigServerUrl";
-NSString * const ERNCodePushConfigDeploymentKey = @"CodePushConfigDeploymentKey";
-NSString * const ERNDebugEnabledConfig = @"DebugEnabledConfig";
-NSString * const kElectrodeContainerFrameworkIdentifier = @"com.walmartlabs.ern.ElectrodeContainer";
+NSString *const ERNCodePushConfig = @"CodePush";
+NSString *const ERNCodePushConfigServerUrl = @"CodePushConfigServerUrl";
+NSString *const ERNCodePushConfigDeploymentKey = @"CodePushConfigDeploymentKey";
+NSString *const ERNDebugEnabledConfig = @"DebugEnabledConfig";
+NSString *const kElectrodeContainerFrameworkIdentifier = @"com.walmartlabs.ern.ElectrodeContainer";
 static NSString *packagerIPPort = @"bundleStoreHostPort";
 static NSString *bundleStore = @"bundleStore";
 static NSString *storeBundleId = @"storeBundleId";
@@ -114,9 +114,9 @@ static NSString *enableBundleStore = @"enableBundleStore";
 @end
 
 @interface ElectrodeReactNative ()
-@property (nonatomic, strong) RCTBridge *bridge;
-@property (nonatomic, strong) ElectrodeBridgeDelegate *bridgeDelegate;
-@property (nonatomic, weak) id<ERNDelegate> ernDelegate;
+@property(nonatomic, strong) RCTBridge *bridge;
+@property(nonatomic, strong) ElectrodeBridgeDelegate *bridgeDelegate;
+@property(nonatomic, weak) id<ERNDelegate> ernDelegate;
 @end
 
 @implementation ElectrodeReactNative
@@ -124,8 +124,7 @@ static NSString *enableBundleStore = @"enableBundleStore";
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Public Methods
 
-+ (void)startWithConfigurations:(id<ElectrodePluginConfig>)reactContainerConfig
-{
++ (void)startWithConfigurations:(id<ElectrodePluginConfig>)reactContainerConfig {
     id sharedInstance = [ElectrodeReactNative sharedInstance];
     static dispatch_once_t startOnceToken;
     dispatch_once(&startOnceToken, ^{
@@ -140,25 +139,22 @@ static NSString *enableBundleStore = @"enableBundleStore";
     id sharedInstance = [ElectrodeReactNative sharedInstance];
     static dispatch_once_t startOnceToken;
     dispatch_once(&startOnceToken, ^{
-        [sharedInstance startContainerWithConfiguration:reactContainerConfig ernDelegate:ernDelegate
-];
+      [sharedInstance startContainerWithConfiguration:reactContainerConfig ernDelegate:ernDelegate];
     });
 }
 
-+ (instancetype)sharedInstance
-{
++ (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
     static id sharedInstance;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[self alloc] init];
+      sharedInstance = [[self alloc] init];
     });
 
     return sharedInstance;
 }
 
 - (UIViewController *)miniAppWithName:(NSString *)name
-                           properties:(NSDictionary *)properties
-{
+                           properties:(NSDictionary *)properties {
     UIViewController *miniAppViewController = [UIViewController new];
     miniAppViewController.view = [self miniAppViewWithName:name properties:properties];;
 
@@ -237,7 +233,7 @@ static NSString *enableBundleStore = @"enableBundleStore";
 }
 
 - (void)signalElectrodeOnReactNativeInitialized:(NSNotification *)notification {
-    // notify delegate that React Native is initalized.
+    // notify delegate that React Native is initialized.
     if (self.ernDelegate && [self.ernDelegate respondsToSelector:@selector(reactNativeDidInitialize)]) {
         [self.ernDelegate reactNativeDidInitialize];
     }

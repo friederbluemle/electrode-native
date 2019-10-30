@@ -1,12 +1,12 @@
 /*
  * Copyright 2017 WalmartLabs
-
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
-
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
-
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -26,10 +26,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ElectrodeContainerConfig: NSObject <ElectrodePluginConfig>
-@property (nonatomic, assign) BOOL debugEnabled;
-@property (nonatomic, copy) NSString *packagerHost;
-@property (nonatomic, copy) NSString *packagerPort;
-@property (nonatomic, copy) NSString *bundleStoreHostPort;
+@property(nonatomic, assign) BOOL debugEnabled;
+@property(nonatomic, copy) NSString *packagerHost;
+@property(nonatomic, copy) NSString *packagerPort;
+@property(nonatomic, copy) NSString *bundleStoreHostPort;
 @end
 
 @protocol MiniAppViewDelegate <NSObject>
@@ -78,7 +78,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)startWithConfigurations:(id<ElectrodePluginConfig>)reactContainerConfig ernDelegate:(id<ERNDelegate>)ernDelegate
 ;
-
 
 /**
  Returns a react native miniapp (from a JSBundle) inside a view controller.
