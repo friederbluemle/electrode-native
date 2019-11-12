@@ -150,7 +150,7 @@ export default class ApiImplAndroidGenerator implements ApiImplGeneratable {
   ): Promise<any> {
     let mustacheView: any = {}
     const versions = android.resolveAndroidVersions({
-      androidGradlePlugin: '3.2.1',
+      androidGradlePlugin: '3.5.3',
     })
     mustacheView.reactNativeVersion = reactNativeVersion
     mustacheView = Object.assign(mustacheView, versions)

@@ -97,7 +97,7 @@ export class AndroidPluginConfigGenerator {
             return `${x.group}:${x.name}:${x.version}`
           } else {
             // Handle this kind of string where version is dynamically retrieved
-            // "com.android.support:exifinterface:${safeExtGet('supportLibVersion', '28.0.0')}"
+            // "androidx.annotation:annotation:${safeExtGet('androidxLibVersion', '1.1.0')}"
             const match = x.name.replace('"', '').match(/^(.+):(.+):(.+)/)
             if (match) {
               const [, group, name, version] = match

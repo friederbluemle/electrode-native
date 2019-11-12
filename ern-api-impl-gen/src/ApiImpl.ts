@@ -119,11 +119,11 @@ async function createNodePackage(
   shell.pushd(outputDirectoryPath)
   try {
     await yarn.init()
+    await yarn.add(apiDependency)
     await yarn.add(
       PackagePath.fromString(`react-native@${reactNativeVersion}`),
       { dev: true }
     )
-    await yarn.add(apiDependency)
     shell.cp(
       path.join(
         Platform.currentPlatformVersionPath,

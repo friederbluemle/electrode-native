@@ -6,7 +6,7 @@ android {
     defaultConfig {
         minSdkVersion {{{minSdkVersion}}}
         targetSdkVersion {{{targetSdkVersion}}}
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -25,8 +25,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:{{{androidxAppcompactVersion}}}'
-    implementation 'androidx.lifecycle:lifecycle-extensions:{{{androidxLifecycleExtrnsionsVersion}}}'
+    implementation 'androidx.appcompat:appcompat:{{{androidxAppcompatVersion}}}'
+    implementation 'androidx.lifecycle:lifecycle-extensions:{{{androidxLifecycleExtensionsVersion}}}'
     implementation 'com.walmartlabs.ern:react-native:{{{reactNativeVersion}}}'
     testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

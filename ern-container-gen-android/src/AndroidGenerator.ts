@@ -289,9 +289,6 @@ export default class AndroidGenerator implements ContainerGenerator {
     androidDependencies.regular.push(
       `com.walmartlabs.ern:react-native:${reactNativePlugin.version}`
     )
-    androidDependencies.regular.push(
-      `com.android.support:appcompat-v7:${versions.supportLibraryVersion}`
-    )
     mustacheView.implementations = this.buildImplementationStatements(
       androidDependencies,
       versions
@@ -534,15 +531,6 @@ export default class AndroidGenerator implements ContainerGenerator {
     androidVersions: AndroidResolvedVersions
   ) {
     const result: any[] = []
-
-    // Replace versions of support libraries with set version
-    dependencies.regular = dependencies.regular.map(d =>
-      d.startsWith('com.android.support:')
-        ? `${d.slice(0, d.lastIndexOf(':'))}:${
-            androidVersions.supportLibraryVersion
-          }`
-        : d
-    )
 
     // Dedupe dependencies with same version
     dependencies.regular = _.uniq(dependencies.regular)

@@ -3,12 +3,12 @@ import path from 'path'
 import { expect } from 'chai'
 
 describe('AndroidPluginConfigGenerator', () => {
-  const fixutresPath = path.join(
+  const fixturesPath = path.join(
     __dirname,
     'fixtures/PluginConfigGenerator/android'
   )
 
-  const dependenciesFixturePath = path.join(fixutresPath, 'dependencies')
+  const dependenciesFixturePath = path.join(fixturesPath, 'dependencies')
   const dependenciesBuildGradlePath = path.join(
     dependenciesFixturePath,
     'build.gradle'

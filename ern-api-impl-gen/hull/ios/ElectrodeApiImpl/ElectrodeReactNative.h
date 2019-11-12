@@ -23,7 +23,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ElectrodeContainerConfig : NSObject <ElectrodePluginConfig>
+@interface ElectrodeContainerConfig: NSObject <ElectrodePluginConfig>
 @property(nonatomic, assign) BOOL debugEnabled;
 @property(nonatomic, copy) NSString *packagerHost;
 @property(nonatomic, copy) NSString *packagerPort;

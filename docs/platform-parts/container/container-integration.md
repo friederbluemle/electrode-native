@@ -118,12 +118,6 @@ The following android build parameters can be configured with application specif
     }
   ```
 
-- `supportLibraryVersion` - You may want a standard way to provide newer features on earlier versions of Android or gracefully fall back to equivalent functionality. You can leverage these libraries to provide that compatibility layer.
-
-  ```grovy
-  compile 'com.android.support:appcompat-v7:28.0.0'
-  ```
-
 You can configure `androidConfig` in the cauldron as show below.
 
 ```json
@@ -133,7 +127,6 @@ You can configure `androidConfig` in the cauldron as show below.
       "buildToolsVersion": "28.0.3",
       "compileSdkVersion": "28",
       "minSdkVersion": "19",
-      "supportLibraryVersion": "28.0.0",
       "targetSdkVersion": "28"
     }
   }

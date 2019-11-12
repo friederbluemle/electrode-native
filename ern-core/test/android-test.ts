@@ -234,15 +234,14 @@ describe('android.js', () => {
       const versions = android.resolveAndroidVersions()
       expect(versions).deep.equal({
         androidGradlePlugin: android.DEFAULT_ANDROID_GRADLE_PLUGIN_VERSION,
-        androidxAppcompactVersion: android.DEFAULT_ANDROIDX_APPCOMPACT_VERSION,
-        androidxLifecycleExtrnsionsVersion:
+        androidxAppcompatVersion: android.DEFAULT_ANDROIDX_APPCOMPAT_VERSION,
+        androidxLifecycleExtensionsVersion:
           android.DEFAULT_ANDROIDX_LIFECYCLE_EXTENSIONS_VERSION,
         buildToolsVersion: android.DEFAULT_BUILD_TOOLS_VERSION,
         compileSdkVersion: android.DEFAULT_COMPILE_SDK_VERSION,
         gradleDistributionVersion: android.DEFAULT_GRADLE_DISTRIBUTION_VERSION,
         minSdkVersion: android.DEFAULT_MIN_SDK_VERSION,
         sourceCompatibility: android.DEFAULT_SOURCE_COMPATIBILITY,
-        supportLibraryVersion: android.DEFAULT_SUPPORT_LIBRARY_VERSION,
         targetCompatibility: android.DEFAULT_TARGET_COMPATIBILITY,
         targetSdkVersion: android.DEFAULT_TARGET_SDK_VERSION,
       })
@@ -257,15 +256,14 @@ describe('android.js', () => {
       })
       expect(versions).deep.equal({
         androidGradlePlugin: '3.0.0',
-        androidxAppcompactVersion: android.DEFAULT_ANDROIDX_APPCOMPACT_VERSION,
-        androidxLifecycleExtrnsionsVersion:
+        androidxAppcompatVersion: android.DEFAULT_ANDROIDX_APPCOMPAT_VERSION,
+        androidxLifecycleExtensionsVersion:
           android.DEFAULT_ANDROIDX_LIFECYCLE_EXTENSIONS_VERSION,
         buildToolsVersion: android.DEFAULT_BUILD_TOOLS_VERSION,
         compileSdkVersion: android.DEFAULT_COMPILE_SDK_VERSION,
         gradleDistributionVersion: android.DEFAULT_GRADLE_DISTRIBUTION_VERSION,
         minSdkVersion: '15',
         sourceCompatibility: 'VERSION_1_9',
-        supportLibraryVersion: android.DEFAULT_SUPPORT_LIBRARY_VERSION,
         targetCompatibility: 'VERSION_1_9',
         targetSdkVersion: android.DEFAULT_TARGET_SDK_VERSION,
       })
@@ -274,27 +272,25 @@ describe('android.js', () => {
     it('should return only user provided versions', () => {
       const versions = android.resolveAndroidVersions({
         androidGradlePlugin: '3.0.0',
-        androidxAppcompactVersion: '1.0.0',
-        androidxLifecycleExtrnsionsVersion: '2.0.0',
+        androidxAppcompatVersion: '1.0.0',
+        androidxLifecycleExtensionsVersion: '2.0.0',
         buildToolsVersion: '27.0.0',
         compileSdkVersion: '27',
         gradleDistributionVersion: '4.5',
         minSdkVersion: '15',
         sourceCompatibility: 'VERSION_1_9',
-        supportLibraryVersion: '27.0.0',
         targetCompatibility: 'VERSION_1_9',
         targetSdkVersion: '27',
       })
       expect(versions).deep.equal({
         androidGradlePlugin: '3.0.0',
-        androidxAppcompactVersion: '1.0.0',
-        androidxLifecycleExtrnsionsVersion: '2.0.0',
+        androidxAppcompatVersion: '1.0.0',
+        androidxLifecycleExtensionsVersion: '2.0.0',
         buildToolsVersion: '27.0.0',
         compileSdkVersion: '27',
         gradleDistributionVersion: '4.5',
         minSdkVersion: '15',
         sourceCompatibility: 'VERSION_1_9',
-        supportLibraryVersion: '27.0.0',
         targetCompatibility: 'VERSION_1_9',
         targetSdkVersion: '27',
       })
