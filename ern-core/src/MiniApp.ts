@@ -124,6 +124,10 @@ export class MiniApp extends BaseMiniApp {
       Platform.switchToVersion(platformVersion)
     }
 
+    if (language && template) {
+      log.warn('Both language and template are set. Ignoring language.')
+    }
+
     let reactNativeVersion
     const retrieveRnManifestTask = kax.task(
       'Querying Manifest for react-native version to use'
@@ -168,16 +172,15 @@ You can find instructions to install CocoaPods @ https://cocoapods.org`)
 
     await kax
       .task(
-        `Creating ${miniAppName} project using react-native v${reactNativeVersion}`
+        `Creating ${miniAppName} project using react-native@${reactNativeVersion}`
       )
       .run(
         reactnative.init(miniAppName, reactNativeVersion, {
-          template:
-            language === 'TypeScript'
-              ? 'typescript'
-              : template
-              ? template
-              : undefined,
+          template: template
+            ? template
+            : language === 'TypeScript'
+            ? 'react-native-template-typescript'
+            : undefined,
         })
       )
 
