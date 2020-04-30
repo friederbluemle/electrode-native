@@ -52,7 +52,7 @@ export default class ReactNativeCli {
     if (semver.gte(rnVersion, '0.60.0')) {
       return execp(`npx --ignore-existing react-native@${rnVersion} ${initCmd}`)
     } else {
-      return execp(`${this.binaryPath} ${initCmd}`)
+      return execp(`npx react-native ${initCmd}`)
     }
   }
 
@@ -75,7 +75,7 @@ export default class ReactNativeCli {
     sourceMapOutput?: string
     resetCache?: boolean
   }): Promise<BundlingResult> {
-    const bundleCommand = `${this.binaryPath} bundle \
+    const bundleCommand = `npx react-native bundle \
 ${entryFile ? `--entry-file=${entryFile}` : ''} \
 ${dev ? '--dev=true' : '--dev=false'} \
 ${platform ? `--platform=${platform}` : ''} \
@@ -116,7 +116,7 @@ ${resetCache ? '--reset-cache' : ''}`
       args.push(`--reset-cache`)
     }
     spawn(
-      path.join(cwd, 'node_modules/.bin/react-native'),
+      path.join(cwd, 'npx react-native'),
       ['start', ...args],
       {
         cwd,
@@ -230,12 +230,13 @@ ${resetCache ? '--reset-cache' : ''}`
   }): Promise<string> {
     const tmpDir = createTmpDir()
     const tmpScriptPath = path.join(tmpDir, scriptFileName)
+    const fullCommand = `npx react-native start ${args.join(' ')}`
     await fs.writeFile(
       tmpScriptPath,
       `
 cd ${cwd}
-echo "Running ${this.binaryPath} start ${args.join(' ')}"
-${this.binaryPath} start ${args.join(' ')}
+echo "Running ${fullCommand}"
+${fullCommand}
 `
     )
     shell.chmod('+x', tmpScriptPath)
