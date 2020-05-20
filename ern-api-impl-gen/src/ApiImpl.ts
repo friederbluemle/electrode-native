@@ -74,14 +74,14 @@ export default async function generateApiImpl({
 }
 
 async function createOutputDirectory(
-  outputDirectoryPath: string,
-  forceGenerate: boolean
+  outputDir: string,
+  force: boolean
 ) {
-  if (!forceGenerate && (await fs.pathExists(outputDirectoryPath))) {
+  if (!force && fs.pathExistsSync(outputDir)) {
     const { shouldRegenerate } = await inquirer.prompt([
       <inquirer.Question>{
         default: false,
-        message: `An implementation directory already exists in ${outputDirectoryPath}. Do you want to delete this and regenerate this project?`,
+        message: `Directory ${outputDir} already exists. Do you want to delete and regenerate it?`,
         name: 'shouldRegenerate',
         type: 'confirm',
       },
@@ -90,20 +90,20 @@ async function createOutputDirectory(
     if (!shouldRegenerate) {
       throw Error('An implementation directory already exists')
     } else {
-      forceGenerate = true
+      force = true
     }
   }
 
-  if (forceGenerate && (await fs.pathExists(outputDirectoryPath))) {
+  if (force && fs.pathExistsSync(outputDir)) {
     log.info(
-      `Deleting the existing directory and recreating a new one in ${outputDirectoryPath}`
+      `Deleting the existing directory and recreating a new one in ${outputDir}`
     )
-    fileUtils.chmodr('755', outputDirectoryPath)
-    shell.rm('-Rf', outputDirectoryPath)
+    fileUtils.chmodr('755', outputDir)
+    shell.rm('-Rf', outputDir)
   } else {
-    log.debug(`creating output dir: ${outputDirectoryPath}`)
+    log.debug(`creating output dir: ${outputDir}`)
   }
-  shell.mkdir('-p', outputDirectoryPath)
+  shell.mkdir('-p', outputDir)
 }
 
 async function createNodePackage(
