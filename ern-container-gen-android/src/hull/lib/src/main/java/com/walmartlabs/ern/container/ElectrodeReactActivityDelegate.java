@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-
 import javax.annotation.Nullable;
 
 public class ElectrodeReactActivityDelegate extends ReactActivityDelegate {
@@ -76,7 +75,6 @@ public class ElectrodeReactActivityDelegate extends ReactActivityDelegate {
         this(activity, null);
     }
 
-
     /**
      * This method has to be called in your Activity onCreate. It retrieves the View containing
      * the ReactNative application
@@ -124,6 +122,7 @@ public class ElectrodeReactActivityDelegate extends ReactActivityDelegate {
 
     /**
      * Creates a new instance of ReactRootView instance or the given component.
+     *
      * @param componentName name of the react view component.
      * @param props Props that will be passed to the component as initial props.
      * @return ReactRootView
@@ -150,12 +149,12 @@ public class ElectrodeReactActivityDelegate extends ReactActivityDelegate {
      * @param componentName {@link String} React native app view component name
      * @deprecated use {@link #removeMiniAppView(String, ReactRootView)}.
      */
-     @Deprecated
+    @Deprecated
     public void removeMiniAppView(@NonNull String componentName) {
         ReactRootViewHolder reactRootViewHolder = mReactRootViews.get(componentName);
         if (reactRootViewHolder != null) {
             reactRootViewHolder.remove(componentName);
-            if(reactRootViewHolder.size() == 0) {
+            if (reactRootViewHolder.size() == 0) {
                 mReactRootViews.remove(componentName);
             }
         }
@@ -165,7 +164,7 @@ public class ElectrodeReactActivityDelegate extends ReactActivityDelegate {
         ReactRootViewHolder reactRootViewHolder = mReactRootViews.get(componentName);
         if (reactRootViewHolder != null) {
             reactRootViewHolder.remove(rootView);
-            if(reactRootViewHolder.size() == 0) {
+            if (reactRootViewHolder.size() == 0) {
                 mReactRootViews.remove(componentName);
             }
         }
@@ -258,7 +257,7 @@ public class ElectrodeReactActivityDelegate extends ReactActivityDelegate {
     }
 
     public void setBackKeyHandler(@NonNull BackKeyHandler backKeyHandler) {
-        this.mBackKeyHandler  = backKeyHandler;
+        mBackKeyHandler = backKeyHandler;
     }
 
     /**
@@ -345,7 +344,7 @@ public class ElectrodeReactActivityDelegate extends ReactActivityDelegate {
     }
     {{/RN_VERSION_LT_58}}
 
-     private void unMountReactApplications() {
+    private void unMountReactApplications() {
         List<ReactRootViewHolder> list;
         synchronized (mReactRootViews) {
             list = new ArrayList<>(mReactRootViews.values());
@@ -368,6 +367,7 @@ public class ElectrodeReactActivityDelegate extends ReactActivityDelegate {
 
         /**
          * Removes the react native view if present.
+         *
          * @param rView {@link ReactRootView}
          * @return true | false
          */

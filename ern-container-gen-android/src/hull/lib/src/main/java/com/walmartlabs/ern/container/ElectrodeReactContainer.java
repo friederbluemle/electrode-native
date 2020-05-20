@@ -1,15 +1,4 @@
-/*
- * Copyright 2017 WalmartLabs
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+{{>licenseInfo}}
 
 package com.walmartlabs.ern.container;
 
@@ -64,7 +53,7 @@ import java.util.List;
 import okhttp3.OkHttpClient;
 
 public class ElectrodeReactContainer {
-    private static String TAG = ElectrodeReactContainer.class.getSimpleName();
+    private static final String TAG = "ElectrodeReactContainer";
 
     @Deprecated
     private static final ElectrodeReactContainer sInstance = new ElectrodeReactContainer();
@@ -78,7 +67,6 @@ public class ElectrodeReactContainer {
     private static List<ReactNativeReadyListener> reactNativeReadyListeners = new ArrayList<>();
 
     private ElectrodeReactContainer() {
-
     }
 
     public synchronized static ReactInstanceManager getReactInstanceManager() {
@@ -147,10 +135,10 @@ public class ElectrodeReactContainer {
             , @NonNull final {{apiName}}ApiRequestHandlerProvider.{{apiName}}ApiConfig {{apiVariableName}}ApiConfig
             {{/hasConfig}}
             {{/apiImplementations}}
-     ) {
+    ) {
         if (sElectrodeReactNativeHost == null) {
             sConfig = reactContainerConfig;
-            
+
             {{#RN_VERSION_GTE_60_1}}
             SoLoader.init(application, /* native exopackage */ false);
             {{/RN_VERSION_GTE_60_1}}
@@ -189,7 +177,7 @@ public class ElectrodeReactContainer {
             sReactPackages.add(new {{name}}().hook(application, null));
             {{/configurable}}
             {{/plugins}}
-            sReactPackages.removeAll(Collections.singleton((ReactPackage)null));
+            sReactPackages.removeAll(Collections.singleton((ReactPackage) null));
 
             // Add Electrode Native Settings item to React Native dev menu
             getReactInstanceManager().getDevSupportManager().addCustomDevOption("Electrode Native Settings", new DevOptionHandler() {
@@ -261,7 +249,7 @@ public class ElectrodeReactContainer {
 
         @SuppressWarnings("unused")
         public String getBundleStoreHostPort() {
-          return bundleStoreHostPort;
+            return bundleStoreHostPort;
         }
 
         @Override

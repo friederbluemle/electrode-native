@@ -17,8 +17,6 @@ android {
     defaultConfig {
         minSdkVersion {{{minSdkVersion}}}
         targetSdkVersion {{{targetSdkVersion}}}
-        versionCode 1
-        versionName "1.0"
     }
     buildTypes {
         release {
@@ -38,7 +36,7 @@ android {
 }
 
 dependencies {
-  {{#implementations}}
+{{#implementations}}
     {{{.}}}
-  {{/implementations}}
+{{/implementations}}
 }

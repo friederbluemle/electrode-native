@@ -337,10 +337,10 @@ public class ErnDevSettingsActivity extends PreferenceActivity {
                                                 getDebugHttpHostUrl()).commit();
                                         if (mAutoReload) {
                                             ElectrodeReactContainer
-                                                .getReactInstanceManager()
-                                                .getDevSupportManager().handleReloadJS();
+                                                    .getReactInstanceManager()
+                                                    .getDevSupportManager().handleReloadJS();
                                         }
-                                    }  
+                                    }
                                 }
                             });
                         }

@@ -1,15 +1,4 @@
-/*
- * Copyright 2017 WalmartLabs
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+{{>licenseInfo}}
 
 package com.walmartlabs.ern.container;
 
@@ -34,11 +23,9 @@ public class ElectrodeMiniAppActivity extends Activity implements ElectrodeReact
     /**
      * Method that helps to pass bundle to react native side.
      *
-     *
-     * @deprecated use
      * @param intent Intent that will start the activity
      * @param bundle Bundle that you would like to pass to react native.
-     *
+     * @deprecated
      */
     public static void addInitialProps(@NonNull Intent intent, @NonNull Bundle bundle) {
         intent.putExtra(INITIAL_PROPS, bundle);
