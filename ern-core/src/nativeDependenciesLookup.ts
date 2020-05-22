@@ -3,7 +3,7 @@ import _ from 'lodash'
 import path from 'path'
 import { manifest } from './Manifest'
 import * as ModuleTypes from './ModuleTypes'
-import readDir = require('fs-readdir-recursive')
+import readDir from 'fs-readdir-recursive'
 
 const NodeModulesLen = 'node_modules'.length
 

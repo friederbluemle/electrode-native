@@ -7,7 +7,6 @@ import { manifest } from './Manifest'
 import * as ModuleType from './ModuleTypes'
 import path from 'path'
 import log from './log'
-import camelCase = require('lodash/camelCase')
 import { readPackageJson } from './packageJsonFileUtils'
 import {
   AppNameDescriptor,
@@ -68,7 +67,7 @@ export function camelize(
   word: string,
   lowercaseFirstLetter: boolean = false
 ): string {
-  word = camelCase(word)
+  word = _.camelCase(word)
   return (
     word &&
     word[0][lowercaseFirstLetter ? 'toLowerCase' : 'toUpperCase']() +
