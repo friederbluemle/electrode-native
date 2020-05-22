@@ -6,7 +6,7 @@ import fs from 'fs'
 import path from 'path'
 import sinon from 'sinon'
 import { assert, expect } from 'chai'
-import git from 'simple-git/promise'
+import gitP from 'simple-git/promise'
 
 const sandbox = sinon.createSandbox()
 
@@ -15,7 +15,7 @@ describe('BaseGit', () => {
   let gitStub: any
 
   beforeEach(() => {
-    gitStub = sandbox.stub(git())
+    gitStub = sandbox.stub(gitP())
     gitCliStub = sandbox.stub(core, 'gitCli').returns(gitStub)
   })
 
