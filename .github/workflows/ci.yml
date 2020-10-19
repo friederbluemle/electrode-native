@@ -38,3 +38,6 @@ jobs:
       - uses: actions/setup-node@v1
       - run: yarn --frozen-lockfile
       - run: yarn test:system misc
+        env:
+          GIT_COMMIT_AUTHOR: Test <test@localhost>
+          GIT_COMMIT_COMMITTER: Test <test@localhost>
