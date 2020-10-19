@@ -31,13 +31,10 @@ jobs:
       - uses: actions/setup-node@v1
       - run: yarn --frozen-lockfile
       - run: yarn check:lint
-  test:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+  wintest:
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
       - run: yarn --frozen-lockfile
-      - run: yarn test:system basic
+      - run: yarn test:system misc
