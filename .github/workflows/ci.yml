@@ -41,7 +41,7 @@ jobs:
       - run: yarn --frozen-lockfile
       - run: yarn test:system misc
   linuxtest:
-    runs-on: linux-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: git config --global user.email "electrodenative@gmail.com"
