@@ -85,6 +85,20 @@ export default class AndroidGenerator implements ContainerGenerator {
     });
   }
 
+  public parseDependencies(dependencies?: string[]): AndroidDependencies {
+    const androidDependencies: AndroidDependencies = {
+      annotationProcessor: [],
+      files: [],
+      raw: [],
+      regular: [],
+      transitive: [],
+    };
+    if (dependencies) {
+      // todo
+    }
+    return androidDependencies;
+  }
+
   public async fillContainerHull(
     config: ContainerGeneratorConfig,
   ): Promise<void> {
@@ -332,6 +346,8 @@ You should replace "${annotationProcessorPrefix}:${dependency}" with "annotation
     // Dedupe repositories and permissions
     mustacheView.customRepos = _.uniq(mustacheView.customRepos);
     mustacheView.customPermissions = _.uniq(mustacheView.customPermissions);
+
+    const androidDependencies = this.parseDependencies(dependencies);
 
     androidDependencies.regular.push(
       `com.walmartlabs.ern:react-native:${versions.reactNativeAarVersion}`,
